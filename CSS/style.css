@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT@0..200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Nabla:EDPT@0..200&display=swap');
+
 body {
     background-color: #110025;
     color:#9ca3af;
@@ -105,11 +108,15 @@ footer{
     }
 }
   
-  h1 {
+  h1 { 
+    font-family: Monoton,"cursive";
+    font-weight: lighter;
+    color:white;
     animation: slideIn 1.5s ease-out;
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 0;
     padding-bottom: 0;
+    
   }
   
   #dayana-picture{
