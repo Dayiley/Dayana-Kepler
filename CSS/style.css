@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT@0..200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Nabla:EDPT@0..200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 body {
     background-color: #110025;
@@ -146,7 +146,7 @@ body {
                 -webkit-backdrop-filter: blur(8px);
                 border-radius: 5px;
             }
-            .one-exeprience, header{
+            .experience-header{
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
