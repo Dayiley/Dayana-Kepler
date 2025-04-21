@@ -7,7 +7,8 @@ body {
     font-family: 'Raleway', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    }
+}
+    
     .halo {
         position: fixed;
         width: 620px;  
@@ -19,14 +20,14 @@ body {
         filter: blur(60px); 
         transition: transform 0.05s linear;
         transform: translate(-50%, -50%); 
-        }
+    }
 
     #web-page-lay-out{
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100%;
-        height: 100vh;
-        }
+        min-height: 100vh;
+    }
 
         #static-container{   
             display: flex;
@@ -35,9 +36,10 @@ body {
             justify-content: center;
             text-align: center;
             position: fixed;
-            width: 50vw; 
+            width: 40vw; 
             height: 100vh;
-            }
+            padding-left: 5%;
+        }
 
             h1 { 
                 font-family: Monoton,"cursive";
@@ -48,46 +50,55 @@ body {
                 margin-bottom: 0;
                 padding-bottom: 0;
                 margin-top: 50%;
-              }
+            }
             
             #tagline{
                 margin: 0;
                 font-size: 1.4rem;
                 font-weight: 600;
-                }
+            }
 
             .nav-bar{
                 display:flex;
                 flex-direction: column;
-                }
+                align-items: center;
                 
-            footer{
-                margin-top: auto;
-                margin-bottom: 0;    
-                }
+                
+            }
+
+   
+            
+            #connect{
+                margin-top: auto; 
+                margin-bottom: 10%;
+            }
 
             a{
                 text-decoration: none;
-                }
+                color: rgb(104, 69, 145);
+                
+            }
+
+
 
             .social-icon {
                 color: #9ca3af;
                 font-size: 25px;
-                }
+            }
 
             .connect-icons{
                 display: flex;
                 gap: 10px;
-                }
+            }
 
             .connect-icons a {
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
+            }
                         
             .connect-icons a:hover {
                 transform: scale(1.2);
                 color: aliceblue;    
-                }
+            }
 
 
         #scroll-container{
@@ -95,9 +106,9 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;  
-            width: 50vw;
-            margin-left: 50vw;
-            }
+            width: 60vw;
+            margin-left: 40vw;
+        }
 
             #dayana-picture{
                 width: 100%;
@@ -111,13 +122,14 @@ body {
 
             #profile-picture{
                 margin: 10%;
-                }
+            }
 
             #about-me{
                 margin:15px;
                 width: 70%;
                 text-align:justify ;
-                }
+            }
+            
             #experience{
                 width: 70%;
             }
@@ -135,7 +147,7 @@ body {
             .one-experience{
                 display: flex;
                 flex-direction: column;
-                transition: background 0.3s ease, backdrop-filter 0.3s ease;
+                transition: 0.3s ease, backdrop-filter 0.3s ease;
                 padding: 10px;
                 
             }
@@ -165,6 +177,13 @@ body {
             .experience-name{
                 margin: 0;
                 padding: 0;
+                flex-grow: 1;
+                font-size: 1.4rem;
+                color: rgba(253, 244, 244, 0.868);
+            }
+
+            .experience-website{
+                font-style: italic;
             }
         
             .experience-description{
@@ -172,33 +191,142 @@ body {
                 padding: 0;
                 margin-left: 30%;
                 margin-top: 0;
+                margin-bottom: 3px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical;
+                transition: all 0.3s ease;
+            }
+                
+                .experience-description.expanded {
+                    -webkit-line-clamp: unset;
                 }
+            
+            .show-experience-btn{
+                background: none;
+                border: none;
+                color:rgb(60, 50, 62);
+                cursor: pointer;
+                font-weight: 500;
+                padding: 0;
+                margin: 0px;
+                width: auto-fit;
+                margin-left: 30%;
+                text-align: start;
+                transition: color 0.3s ease;
 
-        @keyframes slideIn {
-            from {
-            transform: translateX(-100%);
-            opacity: 0;
             }
-            to {
-            transform: translateX(0);
-            opacity: 2;
-            }
-        }
 
-        @keyframes floating {
-            0% {
-                transform: translateY(0);
+            .content-footer{
+                color: rgb(60, 56, 51);
+                font-size: 1.2rem;
+                margin-bottom: 10px;
             }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-        
-        
-        
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 2;
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+            
+@media (max-width: 1024px) {
+    
+    #web-page-lay-out{
+        grid-template-columns: 1fr;
+    }
+
+    #static-container{   
+        position: relative;
+        width: 90%;
+        height: auto;
+        align-items: center;
+        padding: 0;
+    }
+
+    #scroll-container{
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #name{
+        margin-top: 10%;
+        font-size: 3rem;
+    }
+
+    .nav-bar{
+        display:none;
+    }
+
+    #experience{
+        min-width: 500px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+       
+    #about-me{
+        width: 100%;
+        margin: 0;
+        align-content: center;
+        text-align: center;
+    }
+
+    #experience{
+        width: 90%;
+        min-width: 300px;
+    }
+
+    .one-experience{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .experience-header{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .experience-date{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .experience-name{
+        font-size: 1rem;
+        width: 100%;
+        font-weight: 400;
+    }
+
+    .experience-description{
+        margin: 5px 0 0 0;
+        font-size: 0.8rem;
+    }
+}
         
 
         
