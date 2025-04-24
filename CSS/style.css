@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 body {
@@ -194,13 +194,19 @@ body {
                 margin-bottom: 3px;
                 overflow: hidden;
                 display: -webkit-box;
-                -webkit-line-clamp: 3; 
+                -webkit-line-clamp: 3;
+                line-clamp: 3; 
                 -webkit-box-orient: vertical;
                 transition: all 0.3s ease;
+            }
+
+            .show-experience-btn:hover{
+                color: rgb(115, 111, 64);
             }
                 
                 .experience-description.expanded {
                     -webkit-line-clamp: unset;
+                    line-clamp: unset;
                 }
             
             .show-experience-btn{
@@ -217,6 +223,62 @@ body {
                 transition: color 0.3s ease;
 
             }
+
+            #skills{
+                width: 80%;
+                margin-top: 40px;
+            }
+
+            #skills h2{
+                text-align: center;
+            }
+
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                margin-left:20px;
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .skill-card {
+                background-color: #f8f9fa0c;
+                border: 1px solid #a457e32d;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: start;
+                box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+            }
+
+            .skill-card:hover{
+                transform: scale(1.05);
+                color: aliceblue;
+            }
+            
+            .skill-card .icon {
+                font-size: 50px;
+                margin-bottom: 10px;
+                color:rgba(177, 94, 255, 0.262);
+                text-align: end;
+            }
+          
+            .skill-card .skill-name {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            
+            .skill-card .items {
+                list-style:circle;
+                padding: 0;
+                
+            }
+            
+            .skill-card .items li {
+                margin: 5px 0;
+            }
+
+
 
             .content-footer{
                 color: rgb(60, 56, 51);
@@ -255,7 +317,7 @@ body {
 
     #static-container{   
         position: relative;
-        width: 90%;
+        width: 100%;
         height: auto;
         align-items: center;
         padding: 0;
@@ -281,6 +343,15 @@ body {
         min-width: 500px;
     }
 
+    #skills{
+        width: 95%;
+    }
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin: 0;
+      
+    }    
+
 }
 
 @media (max-width: 480px) {
@@ -289,20 +360,21 @@ body {
     }
        
     #about-me{
-        width: 100%;
-        margin: 0;
+        width: auto;
         align-content: center;
         text-align: center;
+        margin-left: 5%;
+        
     }
 
     #experience{
-        width: 90%;
+        width: 100%;
         min-width: 300px;
     }
 
     .one-experience{
         margin-bottom: 20px;
-        width: 100%;
+        width: 95%;
     }
 
     .experience-header{
@@ -322,9 +394,19 @@ body {
         font-weight: 400;
     }
 
+
     .experience-description{
-        margin: 5px 0 0 0;
-        font-size: 0.8rem;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .show-experience-btn{
+        margin-left: 0;
+    }
+
+    .content-footer{
+        width: auto;
+        text-align: center;
     }
 }
         
