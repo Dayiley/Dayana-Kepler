@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poiret+One&family=Tilt+Neon&display=swap');
+html {
+    scroll-behavior: smooth;
+  }
 
 body {
     background-color: #110025;
@@ -8,7 +11,7 @@ body {
     margin: 0;
     padding: 0;
 }
-    
+
     .halo {
         position: fixed;
         width: 620px;  
@@ -61,13 +64,35 @@ body {
             .nav-bar{
                 display:flex;
                 flex-direction: column;
-                align-items: center;
-                
+                align-items: center;                
+                margin: 40px 0 0 0; 
+                            
                 
             }
 
-   
+            .nav-bar a{
+                margin: 4px;
+                font-size: 1.3rem;
+                font-weight: 500;
+                transition: transform 0.3s ease;
+                
             
+            }
+            .nav-bar a:hover {
+                transform: scale(1.2);
+                color:#9ca3af;
+                font-weight: bolder;
+               
+                
+            }
+
+            .nav-bar a.active {
+                transform: scale(1.2);
+                color:aliceblue; 
+                font-weight: bolder;
+                
+              }
+        
             #connect{
                 margin-top: auto; 
                 margin-bottom: 10%;
@@ -79,11 +104,10 @@ body {
                 
             }
 
-
-
-            .social-icon {
+            .social-icon {          
                 color: #9ca3af;
                 font-size: 25px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
 
             .connect-icons{
@@ -91,14 +115,13 @@ body {
                 gap: 10px;
             }
 
-            .connect-icons a {
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
                         
             .connect-icons a:hover {
                 transform: scale(1.2);
                 color: aliceblue;    
             }
+
+
 
 
         #scroll-container{
@@ -113,15 +136,16 @@ body {
             #dayana-picture{
                 width: 100%;
                 height: auto;
-                border-radius: 0 50% 50% 0;   
-                margin-top: 20px;
+                border-radius: 0 50% 50% 0;       
                 padding-top: 30px;
-                box-shadow: rgb(239, 236, 241) 30px 50px 70px -40px;
+                box-shadow: rgba(239, 236, 241, 0.313) 30px 50px 70px -40px;
                 animation: floating 3s ease-in-out infinite;    
             }
 
             #profile-picture{
-                margin: 10%;
+                margin: 10px 15%;
+                align-items: center;
+                justify-content: center;
             }
 
             #about-me{
@@ -147,17 +171,19 @@ body {
             .one-experience{
                 display: flex;
                 flex-direction: column;
-                transition: 0.3s ease, backdrop-filter 0.3s ease;
+                transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
                 padding: 10px;
                 
             }
 
             .one-experience:hover{
-                background: rgba(255, 255, 255, 0.05);
+                background: rgba(255, 255, 255, 0.05);  
+                transform: scale(1.02); /* slightly zooms in */
                 backdrop-filter: blur(8px); 
                 -webkit-backdrop-filter: blur(8px);
                 border-radius: 5px;
             }
+            
             .experience-header{
                 display: flex;
                 flex-direction: row;
@@ -194,13 +220,19 @@ body {
                 margin-bottom: 3px;
                 overflow: hidden;
                 display: -webkit-box;
-                -webkit-line-clamp: 3; 
+                -webkit-line-clamp: 3;
+                line-clamp: 3; 
                 -webkit-box-orient: vertical;
                 transition: all 0.3s ease;
+            }
+
+            .show-experience-btn:hover{
+                color: rgb(115, 111, 64);
             }
                 
                 .experience-description.expanded {
                     -webkit-line-clamp: unset;
+                    line-clamp: unset;
                 }
             
             .show-experience-btn{
@@ -217,6 +249,63 @@ body {
                 transition: color 0.3s ease;
 
             }
+
+            #skills{
+                width: 80%;
+                margin-top: 40px;
+            }
+
+            #skills h2{
+                text-align: center;
+            }
+
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                margin-left:20px;
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .skill-card {
+                background-color: #f8f9fa0c;
+                border: 1px solid #a457e32d;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: start;
+                box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+            }
+
+            .skill-card:hover{
+                transform: scale(1.05);
+                color: aliceblue;
+            }
+            
+            .skill-card .icon {
+                font-size: 50px;
+                margin-bottom: 10px;
+                color:rgba(177, 94, 255, 0.262);
+                text-align: end;
+            }
+          
+            .skill-card .skill-name {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                font-weight: 500;
+            }
+            
+            .skill-card .items {
+                list-style:circle;
+                padding: 0;
+                
+            }
+            
+            .skill-card .items li {
+                margin: 1px 0;
+                font-weight: 200;
+            }
+
+
 
             .content-footer{
                 color: rgb(60, 56, 51);
@@ -246,8 +335,13 @@ body {
         transform: translateY(0);
     }
 }
+
+
+
+
+
             
-@media (max-width: 1024px) {
+@media (max-width: 1024px) {  /* Tablets and smaller devives */
     
     #web-page-lay-out{
         grid-template-columns: 1fr;
@@ -255,7 +349,7 @@ body {
 
     #static-container{   
         position: relative;
-        width: 90%;
+        width: 100%;
         height: auto;
         align-items: center;
         padding: 0;
@@ -281,28 +375,38 @@ body {
         min-width: 500px;
     }
 
+    #skills{
+        width: 95%;
+    }
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin: 0;
+      
+    }    
+
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {   /* Mobile and small screen */
     body {
         overflow-x: hidden;
     }
        
     #about-me{
-        width: 100%;
-        margin: 0;
+        width: auto;
         align-content: center;
         text-align: center;
+        margin-left: 5%;
+        
     }
 
     #experience{
-        width: 90%;
+        width: 100%;
         min-width: 300px;
     }
 
     .one-experience{
         margin-bottom: 20px;
-        width: 100%;
+        width: 95%;
     }
 
     .experience-header{
@@ -322,9 +426,19 @@ body {
         font-weight: 400;
     }
 
+
     .experience-description{
-        margin: 5px 0 0 0;
-        font-size: 0.8rem;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .show-experience-btn{
+        margin-left: 0;
+    }
+
+    .content-footer{
+        width: auto;
+        text-align: center;
     }
 }
         
