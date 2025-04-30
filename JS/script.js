@@ -1,4 +1,7 @@
 
+
+
+
 //halo
 document.addEventListener("mousemove", (e) => {
     const halo = document.querySelector(".halo");
@@ -6,7 +9,66 @@ document.addEventListener("mousemove", (e) => {
     halo.style.top = `${e.clientY}px`;
 });
 
+
+// Nav-bar make active when you are on
+const navLinks = document.querySelectorAll('.nav-bar a');
+const sections = document.querySelectorAll('section');
+
+function removeActiveClasses() {
+  navLinks.forEach(link => link.classList.remove('active'));
+}
+
+// Function to add 'active' to link 
+function setActiveLinkOnScroll() {
+  let currentSection = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop - sectionHeight / 3) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  removeActiveClasses();
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+
+window.addEventListener('scroll', setActiveLinkOnScroll);
+
+// get nav-bar links activated when we click on them
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    removeActiveClasses();
+    link.classList.add('active');
+  });
+});
+
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+    window.scrollTo(0, 0);
+  });
+
+
+
+
+
+
 //experience "show more" button
+document.querySelectorAll('.show-experience-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      toggleDescription(this);
+    });
+  });
+
 function toggleDescription(button) {
     const description = button.previousElementSibling;
   
@@ -15,6 +77,8 @@ function toggleDescription(button) {
       ? "Show less ▲"
       : "Show more ▼";
   }
+
+
 
 
   //footer and copyright
@@ -31,6 +95,8 @@ footer.appendChild(copyright);
 scrollContainer.appendChild(footer);
 
 
+
+
 //mover el connect container
 function relocateSocialIcons() {
     const social = document.getElementById("connect");
@@ -44,7 +110,7 @@ function relocateSocialIcons() {
     }
 }
 
-// Llamar al cargar y al redimensionar
+// Activate it when we load or redimension
 window.addEventListener("load", relocateSocialIcons);
 window.addEventListener("resize", relocateSocialIcons);
 
