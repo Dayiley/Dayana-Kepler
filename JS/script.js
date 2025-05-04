@@ -50,16 +50,6 @@ navLinks.forEach(link => {
   });
 });
 
-window.addEventListener('load', () => {
-    if (window.location.hash) {
-      history.replaceState(null, null, window.location.pathname);
-    }
-    window.scrollTo(0, 0);
-  });
-
-
-
-
 
 
 //experience "show more" button
@@ -97,7 +87,7 @@ scrollContainer.appendChild(footer);
 
 
 
-//mover el connect container
+//relocate connect container
 function relocateSocialIcons() {
     const social = document.getElementById("connect");
     const connect2 = document.getElementById("connect2")
@@ -173,36 +163,87 @@ function createSkillCards() {
         
         const card = document.createElement("div");
         card.classList.add("skill-card");
-
-        
+      
         const icon = document.createElement("div");
-        icon.classList.add("icon");
-        
-        
+        icon.classList.add("icon");      
         const iconContent = document.createElement("i");
         iconContent.classList.add(...skill.iconClass.split(' '));  
-
         icon.appendChild(iconContent);  
         card.appendChild(icon);  
 
         const name = document.createElement("div");
         name.classList.add("skill-name");
         name.textContent = skill.name; 
-        card.appendChild(name);
-
-       
+        card.appendChild(name);  
+        
         const itemList = document.createElement("ul");
         itemList.classList.add("items");
 
-        skill.items.forEach(item => {
+        skill.items.forEach((item, index) => {
             const listItem = document.createElement("li");
-            listItem.textContent = item; 
+            listItem.classList.add("skill-item");
+        
+            const itemText = document.createElement("span");
+            itemText.textContent = item;
+            listItem.appendChild(itemText);
+        
+            // adding a horizontal bar next to the text when percentage array exist
+            if (skill.percentage && skill.percentage[index] !== undefined) {
+                const progressBar = document.createElement("div");
+                progressBar.classList.add("progress-bar-inline");
+        
+                const progress = document.createElement("div");
+                progress.classList.add("progress-inline");
+                progress.style.width = skill.percentage[index] + "%";
+        
+                progressBar.appendChild(progress);
+                listItem.appendChild(progressBar);
+            }    
+            
             itemList.appendChild(listItem);
         });
-        card.appendChild(itemList);
 
+        card.appendChild(itemList);
+   
         container.appendChild(card);
     });
 }
 
 createSkillCards();
+
+
+
+//lets fetch github projects
+
+async function fetchGitHubRepos() {
+    const response = await fetch("https://api.github.com/users/Dayiley/repos");
+    const repos = await response.json();
+
+    const container = document.getElementById("project-list");
+    repos.forEach(repo => {
+      const card = document.createElement("div");
+      card.className = "repo-card";
+
+      const image = document.createElement("img");
+      image.className = "repo-image";
+      image.src = `https://raw.githubusercontent.com/Dayiley/${repo.name}/refs/heads/main/preview.png`;
+      image.onerror = () => {
+        image.src = "https://placehold.co/300x200?text=No+Image&font=montserrat";
+      };
+
+      const info = document.createElement("div");
+      info.className = "repo-info";
+      info.innerHTML = `
+        <a class="repo-name" href="${repo.html_url}" target="_blank">${repo.name} <span>&#8599</span></a>
+        <p>${repo.description || "No description provided."}</p>
+        <small>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</small>
+        
+      `;
+
+      card.appendChild(image);
+      card.appendChild(info);
+      container.appendChild(card);
+    });
+  }
+
+  fetchGitHubRepos();
