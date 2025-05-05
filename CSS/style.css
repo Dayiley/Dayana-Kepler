@@ -1,8 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poiret+One&family=Tilt+Neon&display=swap');
+
 html {
     scroll-behavior: smooth;
-  }
+}
 
 body {
     background-color: #110025;
@@ -70,19 +71,16 @@ body {
                 display:flex;
                 flex-direction: column;
                 align-items: center;                
-                margin: 40px 0 0 0; 
-                            
-                
+                margin: 40px 0 0 0;                                
             }
 
             .nav-bar a{
                 margin: 4px;
                 font-size: 1.3rem;
                 font-weight: 500;
-                transition: transform 0.3s ease;
-                
-            
+                transition: transform 0.3s ease;           
             }
+
             .nav-bar a:hover {
                 transform: scale(1.2);
                 color:#9ca3af;
@@ -154,9 +152,13 @@ body {
             }
 
             #about-me{
-                margin:25px 0 90px 0;
+                margin:150px 0 90px 0;
                 width: 70%;
                 text-align:justify ;
+            }
+
+            #about-me p{
+                font-size: 1.2rem;
             }
             
             #experience{
@@ -168,7 +170,7 @@ body {
                 margin-left: 0;
             }
             
-            ul{
+            #experience-list ul{
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -307,12 +309,19 @@ body {
                 font-weight: 500;
                 
             }
+
+            .skill-card ul{
+                padding: 0;
+                margin: 0;
+            }
+
             .skill-item {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 gap: 5px;
-                margin-bottom: 5px;
+                margin: 0 0 5px 0;
+                padding: 0;
             }
             .progress-bar-inline {
                 background-color:#333;
@@ -326,7 +335,7 @@ body {
             .progress-inline {
                 background-color: rgba(177, 94, 255, 0.262);
                 height: 100%;
-                border-radius: 5px;
+                border-radius: 5px 0 0 5x;
                 transition: width 0.4s ease;
             }
 
@@ -334,21 +343,16 @@ body {
                 background-color: #df9aff89;  
             }
             
-           
-            .skill-card .items li {
-                margin: 1px 0;
-                font-weight: 200;
-            }
 
             
-
         #projects{
-             margin: 10%;
+             margin: 10% 10% 150px 10%;
         }
             .projects-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
                 gap: 1.5rem;
+                margin-top: 40px;
             }
 
                 .repo-card {
@@ -397,12 +401,112 @@ body {
                 text-decoration: none;
                 }
 
-                .repo-info a span{
+                .repo-info a span {
                 font-size: 20px;
                 font-family: 'Courier New', Courier, monospace;
                 }
 
+        #message-container {
+            display: none;
+            gap: 2rem;
+            padding: 2rem;
+            animation: fadeIn 0.5s ease-in;
+            margin:100px 10% 200px 10%;
+        }
+        #message-container.show {
+            display: flex;
+        }
 
+                  
+                  .left-panel,
+                  .right-panel {
+                    flex: 1;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                  }
+                  
+                  .left-panel.show,
+                  .right-panel.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                  
+                  form input,
+                  form textarea {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    padding: 10px;
+                    border: 1px solid #d781ff45;
+                    background-color: rgba(240, 248, 255, 0.12);
+                  }
+                  
+                  form input:focus,
+                  form textarea:focus {
+                    outline: none;
+                    border-color: #a960ff;
+                    background-color: #fff;
+                  }
+
+
+                  #message-container h2 {
+                 height: 100px;
+                  }
+
+                  .msg{
+                    background-color: rgba(39, 0, 57, 0.683);
+                    color: aliceblue;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding:2px ;
+                    margin: 3px;
+                    border-radius: 15px 15px 15px 0;
+                    max-width: 100%;
+                    position: relative;
+                    margin-top: 20px;
+                    box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+                  }
+
+                  .displayed-message{
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 90%;
+                    overflow-wrap: break-word; 
+                    word-break: break-word;
+                   
+                  }
+
+                
+                    .msg-btn {
+                        background-color: rgba(255, 255, 255, 0);
+                        border: none;
+                        position: absolute;
+                        top: 5px; 
+                        right: 10px;
+                        margin-left: 5px; 
+                        color: #9ca3af;
+                      }
+
+                      .msg-btn.edit{
+                        right: 40px;
+                      }
+
+                 
+                  
+                  @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                  }
+
+     
+                  #connect2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 90%;
+                  }
 
 
         .content-footer{
@@ -488,7 +592,16 @@ body {
         margin: 3%;
     }
 
+    #connect{
+        display:flex;
+        justify-content: center;
+        align-items: center;        
+    }
+
 }
+
+
+
 
 @media (max-width: 480px) {   /* Mobile and small screen */
     body {

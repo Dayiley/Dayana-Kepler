@@ -95,6 +95,7 @@ function relocateSocialIcons() {
 
     if (window.innerWidth <= 1024) {     
         connect2.appendChild(social);
+
     } else {
         staticContainer.appendChild(social);
     }
@@ -118,7 +119,7 @@ let Skills = [
             "React",
             "Responsive Design"
         ],
-        percentage: [80, 75, 50, 20, 90]
+        percentage: [80, 75, 50, 20, 80]
     },
     {
         name: "Softwares and Tools",
@@ -150,7 +151,7 @@ let Skills = [
             "Cultural Awareness",
             "Resourcefulness",
             "Time Management",
-            "Spanish Fluency"
+            "Attention to detail"
         ]
     }
 ];
@@ -215,35 +216,122 @@ createSkillCards();
 
 //lets fetch github projects
 
-async function fetchGitHubRepos() {
-    const response = await fetch("https://api.github.com/users/Dayiley/repos");
-    const repos = await response.json();
-
-    const container = document.getElementById("project-list");
-    repos.forEach(repo => {
-      const card = document.createElement("div");
-      card.className = "repo-card";
-
-      const image = document.createElement("img");
-      image.className = "repo-image";
-      image.src = `https://raw.githubusercontent.com/Dayiley/${repo.name}/refs/heads/main/preview.png`;
-      image.onerror = () => {
-        image.src = "https://placehold.co/300x200?text=No+Image&font=montserrat";
-      };
-
-      const info = document.createElement("div");
-      info.className = "repo-info";
-      info.innerHTML = `
-        <a class="repo-name" href="${repo.html_url}" target="_blank">${repo.name} <span>&#8599</span></a>
-        <p>${repo.description || "No description provided."}</p>
-        <small>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</small>
-        
-      `;
-
-      card.appendChild(image);
-      card.appendChild(info);
-      container.appendChild(card);
-    });
+function fetchGitHubRepos() {
+    fetch("https://api.github.com/users/Dayiley/repos")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Something went wrong 😢");
+        }
+        return res.json();
+      })
+      .then((repos) => {
+        const container = document.getElementById("project-list");
+  
+        repos.forEach((repo) => {
+          const card = document.createElement("div");
+          card.className = "repo-card";
+  
+          const image = document.createElement("img");
+          image.className = "repo-image";
+          image.src = `https://raw.githubusercontent.com/Dayiley/${repo.name}/refs/heads/main/preview.png`;
+          image.onerror = () => {
+            image.src = "https://placehold.co/300x200?text=No+Image&font=montserrat";
+          };
+  
+          const info = document.createElement("div");
+          info.className = "repo-info";
+          info.innerHTML = `
+            <a class="repo-name" href="${repo.html_url}" target="_blank">${repo.name} <span>&#8599;</span></a>
+            <p>${repo.description || "No description provided."}</p>
+            <small>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</small>
+          `;
+  
+          card.appendChild(image);
+          card.appendChild(info);
+          container.appendChild(card);
+        });
+      })
+      .catch((error) => {
+        const container = document.getElementById("project-list");
+        const errorElement = document.createElement("p");
+        errorElement.innerText = error.message;
+        container.appendChild(errorElement);
+      });
   }
-
+  
   fetchGitHubRepos();
+
+  
+  
+
+
+
+
+//   //'LEAVE A MESSAGE' SECTION
+
+const showBtn = document.getElementById("show-form-btn");
+const messageContainer = document.getElementById("message-container");
+const form = document.getElementById("leave-message");
+const leftPanel = document.getElementById("message-form");
+const rightPanel = document.getElementById("messages");
+const messageList = rightPanel.querySelector("ul");
+
+showBtn.addEventListener("click", () => {
+    showBtn.style.display = "none";
+    messageContainer.classList.add("show"); 
+    leftPanel.classList.add("show");
+  });
+  
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  
+    const name = e.target.usersName.value;
+    const email = e.target.usersEmail.value;
+    const message = e.target.usersMessage.value;
+  
+    const newMessage = document.createElement("li");
+    newMessage.classList.add("msg")
+    newMessage.innerHTML = `
+    <div class="displayed-message">
+      <a href="mailto:${email}">${name}</a>
+      <p>${message}</p>
+    </div>
+    `;
+  
+    
+
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "msg-btn remove";
+    removeBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    removeBtn.addEventListener("click", () => newMessage.remove());
+  
+    const editBtn = document.createElement("button");
+    editBtn.className = "msg-btn edit";
+    editBtn.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
+    editBtn.addEventListener("click", () => {
+        form.usersName.value = name;
+        form.usersEmail.value = email;
+        form.usersMessage.value = message;
+
+      newMessage.remove();
+      if (messageList.children.length === 0) {
+    rightPanel.classList.remove("show");
+    }
+  });
+  
+    const btnCont = document.createElement("div");
+    btnCont.className = "btn-container";
+    
+
+    btnCont.appendChild(editBtn);
+    btnCont.appendChild(removeBtn);
+    newMessage.appendChild(btnCont);
+    messageList.appendChild(newMessage);
+  
+    
+    rightPanel.classList.add("show");
+  
+    e.target.reset();
+  });
+
+  
