@@ -1,8 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poiret+One&family=Tilt+Neon&display=swap');
+
 html {
     scroll-behavior: smooth;
-  }
+}
 
 body {
     background-color: #110025;
@@ -11,6 +12,11 @@ body {
     margin: 0;
     padding: 0;
 }
+    h2{
+        font-size: 2.2rem;
+        text-align: center;
+        margin: 0;
+    }
 
     .halo {
         position: fixed;
@@ -65,19 +71,16 @@ body {
                 display:flex;
                 flex-direction: column;
                 align-items: center;                
-                margin: 40px 0 0 0; 
-                            
-                
+                margin: 40px 0 0 0;                                
             }
 
             .nav-bar a{
                 margin: 4px;
                 font-size: 1.3rem;
                 font-weight: 500;
-                transition: transform 0.3s ease;
-                
-            
+                transition: transform 0.3s ease;           
             }
+
             .nav-bar a:hover {
                 transform: scale(1.2);
                 color:#9ca3af;
@@ -149,20 +152,25 @@ body {
             }
 
             #about-me{
-                margin:15px;
+                margin:150px 0 90px 0;
                 width: 70%;
                 text-align:justify ;
+            }
+
+            #about-me p{
+                font-size: 1.2rem;
             }
             
             #experience{
                 width: 70%;
+                margin-bottom: 80px;
             }
 
             #experience-list{
                 margin-left: 0;
             }
             
-            ul{
+            #experience-list ul{
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -178,7 +186,7 @@ body {
 
             .one-experience:hover{
                 background: rgba(255, 255, 255, 0.05);  
-                transform: scale(1.02); /* slightly zooms in */
+                transform: scale(1.02); 
                 backdrop-filter: blur(8px); 
                 -webkit-backdrop-filter: blur(8px);
                 border-radius: 5px;
@@ -250,10 +258,10 @@ body {
 
             }
 
-            #skills{
-                width: 80%;
-                margin-top: 40px;
-            }
+        #skills{
+            width: 80%;
+            margin-bottom: 80px;
+        }
 
             #skills h2{
                 text-align: center;
@@ -274,44 +282,240 @@ body {
                 border-radius: 8px;
                 text-align: start;
                 box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+                transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             }
 
             .skill-card:hover{
                 transform: scale(1.05);
                 color: aliceblue;
+                background-color: #be74ef49;
             }
             
-            .skill-card .icon {
+            .icon {
                 font-size: 50px;
                 margin-bottom: 10px;
                 color:rgba(177, 94, 255, 0.262);
                 text-align: end;
             }
+
+            .skill-card:hover .icon {
+                color: #df9aff;
+                text-shadow: 0 0 2px #d47aff, 0 0 6px #d47aff;
+            }
           
-            .skill-card .skill-name {
-                font-size: 1.5rem;
+            .skill-name {
+                font-size: 1.7rem;
                 margin-bottom: 10px;
                 font-weight: 500;
-            }
-            
-            .skill-card .items {
-                list-style:circle;
-                padding: 0;
                 
             }
+
+            .skill-card ul{
+                padding: 0;
+                margin: 0;
+            }
+
+            .skill-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 5px;
+                margin: 0 0 5px 0;
+                padding: 0;
+            }
+            .progress-bar-inline {
+                background-color:#333;
+                border-radius: 5px;
+                height: 8px;
+                flex-grow: 1;
+                max-width: 140px; 
+                overflow: hidden;
+            }
             
-            .skill-card .items li {
-                margin: 1px 0;
-                font-weight: 200;
+            .progress-inline {
+                background-color: rgba(177, 94, 255, 0.262);
+                height: 100%;
+                border-radius: 5px 0 0 5x;
+                transition: width 0.4s ease;
             }
 
-
-
-            .content-footer{
-                color: rgb(60, 56, 51);
-                font-size: 1.2rem;
-                margin-bottom: 10px;
+            .skill-card:hover .progress-inline {
+                background-color: #df9aff89;  
             }
+            
+
+            
+        #projects{
+             margin: 10% 10% 150px 10%;
+        }
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+                margin-top: 40px;
+            }
+
+                .repo-card {
+                display: flex;
+                flex-direction: row;
+                background: rgba(255, 255, 255, 0.05);  
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                min-height: 150px;
+                }
+    
+                .repo-image {
+                width: 20%;
+                object-fit: cover;
+                max-height: 150px;
+                height: 100%;
+                filter: sepia(3) hue-rotate(203deg) saturate(2);
+                transition: all 0.4s ease; 
+                }
+
+                .repo-card:hover .repo-image {
+                filter: none; 
+                width: 50%;
+                }
+              
+                .repo-info {
+                padding: 1rem;
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                }
+
+                .repo-info p {
+                flex-grow: 1;
+                margin: 0 0 0.5rem 0;
+                }
+
+                .repo-info small {
+                color: #aaa;
+                }
+
+                .repo-info a {
+                color: #9df;
+                text-decoration: none;
+                }
+
+                .repo-info a span {
+                font-size: 20px;
+                font-family: 'Courier New', Courier, monospace;
+                }
+
+        #message-container {
+            display: none;
+            gap: 2rem;
+            padding: 2rem;
+            animation: fadeIn 0.5s ease-in;
+            margin:100px 10% 200px 10%;
+        }
+        #message-container.show {
+            display: flex;
+        }
+
+                  
+                  .left-panel,
+                  .right-panel {
+                    flex: 1;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                  }
+                  
+                  .left-panel.show,
+                  .right-panel.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                  
+                  form input,
+                  form textarea {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    padding: 10px;
+                    border: 1px solid #d781ff45;
+                    background-color: rgba(240, 248, 255, 0.12);
+                  }
+                  
+                  form input:focus,
+                  form textarea:focus {
+                    outline: none;
+                    border-color: #a960ff;
+                    background-color: #fff;
+                  }
+
+
+                  #message-container h2 {
+                 height: 100px;
+                  }
+
+                  .msg{
+                    background-color: rgba(39, 0, 57, 0.683);
+                    color: aliceblue;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding:2px ;
+                    margin: 3px;
+                    border-radius: 15px 15px 15px 0;
+                    max-width: 100%;
+                    position: relative;
+                    margin-top: 20px;
+                    box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+                  }
+
+                  .displayed-message{
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 90%;
+                    overflow-wrap: break-word; 
+                    word-break: break-word;
+                   
+                  }
+
+                
+                    .msg-btn {
+                        background-color: rgba(255, 255, 255, 0);
+                        border: none;
+                        position: absolute;
+                        top: 5px; 
+                        right: 10px;
+                        margin-left: 5px; 
+                        color: #9ca3af;
+                      }
+
+                      .msg-btn.edit{
+                        right: 40px;
+                      }
+
+                 
+                  
+                  @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                  }
+
+     
+                  #connect2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 90%;
+                  }
+
+
+        .content-footer{
+            color: rgb(60, 56, 51);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+
 
 @keyframes slideIn {
     from {
@@ -382,9 +586,22 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         margin: 0;
       
-    }    
+    } 
+    
+    #projects{
+        margin: 3%;
+    }
+
+    #connect{
+        display:flex;
+        justify-content: center;
+        align-items: center;        
+    }
 
 }
+
+
+
 
 @media (max-width: 480px) {   /* Mobile and small screen */
     body {
