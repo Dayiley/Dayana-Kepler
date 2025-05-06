@@ -12,12 +12,18 @@ body {
     margin: 0;
     padding: 0;
 }
-    h2{
+    h2 {
         font-size: 2.2rem;
         text-align: center;
-        margin: 0;
+        margin-bottom: 40px;
+    }
+    
+    a {
+        text-decoration: none;
+        color: rgb(104, 69, 145);       
     }
 
+    
     .halo {
         position: fixed;
         width: 620px;  
@@ -50,7 +56,7 @@ body {
             padding-left: 5%;
         }
 
-            h1 { 
+            #name { 
                 font-family: Monoton,"cursive";
                 font-weight: lighter;
                 color:white;
@@ -99,30 +105,22 @@ body {
             #connect{
                 margin-top: auto; 
                 margin-bottom: 10%;
+                display: flex;
+                gap: 10px;
             }
-
-            a{
-                text-decoration: none;
-                color: rgb(104, 69, 145);
-                
+           
+            #connect a:hover {
+                transform: scale(1.2);
+                color: aliceblue;    
             }
-
+            
             .social-icon {          
                 color: #9ca3af;
                 font-size: 25px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
-
-            .connect-icons{
-                display: flex;
-                gap: 10px;
-            }
-
                         
-            .connect-icons a:hover {
-                transform: scale(1.2);
-                color: aliceblue;    
-            }
+            
 
 
 
@@ -132,27 +130,23 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;  
-            width: 60vw;
-            margin-left: 40vw;
+            width: 55vw;
+            margin-left: 45vw;
         }
 
             #dayana-picture{
-                width: 100%;
+                width: 80%;
                 height: auto;
                 border-radius: 0 50% 50% 0;       
+                margin-left: 10%;
                 padding-top: 30px;
                 box-shadow: rgba(239, 236, 241, 0.313) 30px 50px 70px -40px;
                 animation: floating 3s ease-in-out infinite;    
             }
 
-            #profile-picture{
-                margin: 10px 15%;
-                align-items: center;
-                justify-content: center;
-            }
-
             #about-me{
-                margin:150px 0 90px 0;
+                margin-bottom:10px;
+                padding-top: 80px;
                 width: 70%;
                 text-align:justify ;
             }
@@ -163,14 +157,11 @@ body {
             
             #experience{
                 width: 70%;
-                margin-bottom: 80px;
+                margin-bottom: 30px;
+                padding-top: 70px;
             }
 
-            #experience-list{
-                margin-left: 0;
-            }
-            
-            #experience-list ul{
+            #experience-list{             
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -180,8 +171,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-                padding: 10px;
-                
+                padding: 10px;               
             }
 
             .one-experience:hover{
@@ -234,15 +224,6 @@ body {
                 transition: all 0.3s ease;
             }
 
-            .show-experience-btn:hover{
-                color: rgb(115, 111, 64);
-            }
-                
-                .experience-description.expanded {
-                    -webkit-line-clamp: unset;
-                    line-clamp: unset;
-                }
-            
             .show-experience-btn{
                 background: none;
                 border: none;
@@ -258,14 +239,22 @@ body {
 
             }
 
+            .show-experience-btn:hover{
+                color: rgb(115, 111, 64);
+            }
+            
+            .experience-description.expanded {
+                -webkit-line-clamp: unset;
+                line-clamp: unset;
+            }
+            
+            
+
         #skills{
             width: 80%;
-            margin-bottom: 80px;
+            margin-bottom: 10px;
+            padding-top: 70px;
         }
-
-            #skills h2{
-                text-align: center;
-            }
 
             .skills-container {
                 display: grid;
@@ -340,13 +329,14 @@ body {
             }
 
             .skill-card:hover .progress-inline {
-                background-color: #df9aff89;  
+                background-color: #d57aff95;  
             }
             
 
             
         #projects{
-             margin: 10% 10% 150px 10%;
+             margin: 10% 10% 10px 10%;
+             padding-top: 70px;
         }
             .projects-grid {
                 display: grid;
@@ -396,9 +386,8 @@ body {
                 color: #aaa;
                 }
 
-                .repo-info a {
-                color: #9df;
-                text-decoration: none;
+                .repo-card:hover .repo-info a {
+                color: #9df;            
                 }
 
                 .repo-info a span {
@@ -406,22 +395,55 @@ body {
                 font-family: 'Courier New', Courier, monospace;
                 }
 
+        #show-form-btn{
+            background-color: rgba(255, 255, 255, 0.027);
+            color: #9ca3af;
+            display: block;
+            margin: 100px auto;
+            padding: 10px;
+            width: 250px;
+            font-size: 1.3rem;
+            border-radius: 10px;
+            border: #9ca3af4a solid 1px ;
+            box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+        }
+
+     
+        #submit-form{
+            background-color: rgba(255, 255, 255, 0.027);
+            color:rgba(239, 230, 248, 0.555);
+            font-size: 1rem;
+            width: 95%;
+            padding: 10px;
+            border-radius: 5px;
+            border: #3f0357b0 solid;
+            box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
+        }
+
+        #show-form-btn:hover, #submit-form:hover{
+            color: #df9aff;
+            text-shadow: 0 0 2px #d47aff, 0 0 6px #d47aff;
+            background-color: #401352;
+            transform: scale(1.1);
+        }
+
         #message-container {
             display: none;
-            gap: 2rem;
-            padding: 2rem;
-            animation: fadeIn 0.5s ease-in;
-            margin:100px 10% 200px 10%;
+            gap: 1rem;
+            animation: fadeIn 0.5s ease-in;          
         }
+
         #message-container.show {
             display: flex;
+            margin-bottom: 80px;
+            padding-top: 100px;
         }
 
                   
                   .left-panel,
                   .right-panel {
                     flex: 1;
-                    opacity: 0;
+                    opacity: 0;               
                     transform: translateY(10px);
                     transition: opacity 0.5s ease, transform 0.5s ease;
                   }
@@ -434,7 +456,7 @@ body {
                   
                   form input,
                   form textarea {
-                    width: 100%;
+                    width: 90%;
                     margin-bottom: 10px;
                     border-radius: 5px;
                     padding: 10px;
@@ -451,7 +473,9 @@ body {
 
 
                   #message-container h2 {
-                 height: 100px;
+                 height: 70px;
+                 margin-bottom:0 ;
+                 font-size: 1.8rem;
                   }
 
                   .msg{
@@ -460,12 +484,11 @@ body {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    padding:2px ;
-                    margin: 3px;
+                    padding: 10px;
                     border-radius: 15px 15px 15px 0;
                     max-width: 100%;
                     position: relative;
-                    margin-top: 20px;
+                    margin: 20px 3px 3px 3px;
                     box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
                   }
 
@@ -495,18 +518,13 @@ body {
 
                  
                   
-                  @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                  }
-
-     
-                  #connect2{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 90%;
-                  }
+                      
+        #connect2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 90%;
+        }
 
 
         .content-footer{
@@ -514,6 +532,10 @@ body {
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
+
+
+
+
 
 
 
@@ -540,12 +562,21 @@ body {
     }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+
+
+
 
 
 
 
             
-@media (max-width: 1024px) {  /* Tablets and smaller devives */
+@media (max-width: 1366px) {  /* Tablets and smaller devives */
     
     #web-page-lay-out{
         grid-template-columns: 1fr;
@@ -591,6 +622,22 @@ body {
     #projects{
         margin: 3%;
     }
+
+    #message-container{
+        margin: 0;
+        padding: 0;
+    }
+
+    #messages{
+        padding-left: 0;
+    }
+    #messages ul{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+  
+
 
     #connect{
         display:flex;
@@ -651,6 +698,42 @@ body {
 
     .show-experience-btn{
         margin-left: 0;
+    }
+ #connect2{
+    width: 90%;
+ }
+
+ #message-container{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+ }
+    #message-container.show {
+        flex-direction: column;
+        margin-bottom:0 10% 30px 0;
+        width: 100%;
+       
+
+        
+    }
+    #message-form{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        max-width: 300px;
+    }
+
+   
+    #messages{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #messages h2{
+        margin: 5px;
+        height: auto;
     }
 
     .content-footer{
