@@ -93,7 +93,7 @@ function relocateSocialIcons() {
     const connect2 = document.getElementById("connect2")
     const staticContainer = document.getElementById("static-container");
 
-    if (window.innerWidth <= 1024) {     
+    if (window.innerWidth <= 1366) {     
         connect2.appendChild(social);
 
     } else {
@@ -267,7 +267,7 @@ function fetchGitHubRepos() {
 
 
 
-//   //'LEAVE A MESSAGE' SECTION
+   //'LEAVE A MESSAGE' SECTION
 
 const showBtn = document.getElementById("show-form-btn");
 const messageContainer = document.getElementById("message-container");
@@ -303,8 +303,15 @@ showBtn.addEventListener("click", () => {
     const removeBtn = document.createElement("button");
     removeBtn.className = "msg-btn remove";
     removeBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-    removeBtn.addEventListener("click", () => newMessage.remove());
-  
+    removeBtn.addEventListener("click", ()=> {
+        newMessage.remove();
+
+        if (messageList.children.length === 0) {
+        rightPanel.classList.remove("show");
+        }
+    
+    });
+
     const editBtn = document.createElement("button");
     editBtn.className = "msg-btn edit";
     editBtn.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
@@ -313,11 +320,11 @@ showBtn.addEventListener("click", () => {
         form.usersEmail.value = email;
         form.usersMessage.value = message;
 
-      newMessage.remove();
-      if (messageList.children.length === 0) {
-    rightPanel.classList.remove("show");
-    }
-  });
+        newMessage.remove();
+        if (messageList.children.length === 0) {
+        rightPanel.classList.remove("show");
+        }
+    });
   
     const btnCont = document.createElement("div");
     btnCont.className = "btn-container";
