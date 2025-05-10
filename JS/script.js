@@ -2,12 +2,107 @@
 
 
 
+
 //halo
 document.addEventListener("mousemove", (e) => {
     const halo = document.querySelector(".halo");
     halo.style.left = `${e.clientX}px`;
     halo.style.top = `${e.clientY}px`;
 });
+
+
+
+const lightTheme = {
+    '--color-bg': '#ffffff',
+    '--color-text': '#110025',
+    '--color-a': '#5f2f91',
+    '--color-focus': '#630088',
+    '--color-hover': '#bb45ff',
+    '--color-box-bg': 'rgba(0, 0, 0, 0.05)',
+    '--color-skill-bg-hover': '#e0c4ff55',
+    '--color-border': '#a457e33d',
+    '--color-s-icon': 'rgba(94, 27, 255, 0.262)',
+    '--color-progress-hover': '#bb45ff',
+    '--color-msg-bg': 'rgba(240, 240, 255, 0.9)',
+  };
+
+
+  function applyTheme(theme) {
+    const root = document.documentElement;
+    for (let variable in theme) {
+      root.style.setProperty(variable, theme[variable]);
+    }
+  }
+
+  let isLightTheme = false;
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  if (!isLightTheme) {
+    applyTheme(lightTheme);
+    document.getElementById('theme-toggle').innerHTML = `<i class="fa-solid fa-moon"></i>`;
+  } else {
+   
+
+    document.documentElement.removeAttribute('style');
+    document.getElementById('theme-toggle').innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  }
+  isLightTheme = !isLightTheme;
+});
+
+
+
+
+const hamburger = document.querySelector('.hamburger');
+const existingNavLinks = document.querySelectorAll('.nav-bar a');
+
+// Crear contenedor del menú móvil
+const mobileNav = document.createElement('div');
+mobileNav.classList.add('mobile-nav');
+
+// Crear botón de cerrar
+const closeBtn = document.createElement('button');
+closeBtn.innerHTML = '&times;';
+closeBtn.classList.add('close-btn');
+mobileNav.appendChild(closeBtn);
+
+// Clonar los enlaces existentes y añadirlos al menú
+existingNavLinks.forEach(link => {
+  const clonedLink = link.cloneNode(true);
+  clonedLink.addEventListener('click', () => {
+    mobileNav.classList.remove('show');
+  });
+  mobileNav.appendChild(clonedLink);
+});
+
+// Agregar el menú al body
+document.body.appendChild(mobileNav);
+
+// Mostrar el menú al hacer clic en el hamburger
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.add('show');
+});
+
+// Cerrar con el botón ✖
+closeBtn.addEventListener('click', () => {
+  mobileNav.classList.remove('show');
+});
+
+// Cerrar haciendo clic fuera del menú
+document.addEventListener('click', (e) => {
+  const isClickInside = mobileNav.contains(e.target) || hamburger.contains(e.target);
+  if (!isClickInside) {
+    mobileNav.classList.remove('show');
+  }
+});
+
+
+
+
+
+
+
+
+
 
 
 // Nav-bar make active when you are on
@@ -41,6 +136,22 @@ function setActiveLinkOnScroll() {
 
 
 window.addEventListener('scroll', setActiveLinkOnScroll);
+
+
+const tagline = `Industrial Engineer | Software Developer Student |
+ Part-time Artist`;
+const taglineElement = document.getElementById("tagline");
+let index = 0;
+
+function typeText() {
+  if (index < tagline.length) {
+    taglineElement.textContent += tagline.charAt(index);
+    index++;
+    setTimeout(typeText, 40); // velocidad (milisegundos por letra)
+  }
+}
+
+window.addEventListener("DOMContentLoaded", typeText);
 
 // get nav-bar links activated when we click on them
 navLinks.forEach(link => {
