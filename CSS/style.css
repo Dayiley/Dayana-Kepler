@@ -764,6 +764,11 @@ body {
     body {
         overflow-x: hidden;
     }
+
+    #theme-toggle{
+        
+        margin-right: 1rem;
+    }
        
     #about-me{
         width: auto;
