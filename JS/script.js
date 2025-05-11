@@ -55,17 +55,17 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 const hamburger = document.querySelector('.hamburger');
 const existingNavLinks = document.querySelectorAll('.nav-bar a');
 
-// Crear contenedor del menú móvil
+
 const mobileNav = document.createElement('div');
 mobileNav.classList.add('mobile-nav');
 
-// Crear botón de cerrar
+
 const closeBtn = document.createElement('button');
 closeBtn.innerHTML = '&times;';
 closeBtn.classList.add('close-btn');
 mobileNav.appendChild(closeBtn);
 
-// Clonar los enlaces existentes y añadirlos al menú
+
 existingNavLinks.forEach(link => {
   const clonedLink = link.cloneNode(true);
   clonedLink.addEventListener('click', () => {
@@ -74,20 +74,20 @@ existingNavLinks.forEach(link => {
   mobileNav.appendChild(clonedLink);
 });
 
-// Agregar el menú al body
+
 document.body.appendChild(mobileNav);
 
-// Mostrar el menú al hacer clic en el hamburger
+
 hamburger.addEventListener('click', () => {
   mobileNav.classList.add('show');
 });
 
-// Cerrar con el botón ✖
+
 closeBtn.addEventListener('click', () => {
   mobileNav.classList.remove('show');
 });
 
-// Cerrar haciendo clic fuera del menú
+
 document.addEventListener('click', (e) => {
   const isClickInside = mobileNav.contains(e.target) || hamburger.contains(e.target);
   if (!isClickInside) {

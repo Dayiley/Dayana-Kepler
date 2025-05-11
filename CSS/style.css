@@ -442,21 +442,19 @@ body {
                     font-family: 'Courier New', Courier, monospace;
                     }
 
-        #show-form-btn,
-        #submit-form{
+        .mess-sec-btn{
             background-color: var(--color-box-bg);
             color: var(--color-text);
             display: block;
             margin: auto;
             padding: 10px;
-            width: auto;
             font-size: 1.3rem;
             border-radius: 10px;
             border: var(--color-border) solid 1px ;
             box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
         }
         
-        #show-form-btn:hover, #submit-form:hover{
+        .mess-sec-btn:hover {
             color: var(--color-hover);
             text-shadow: 0 0 2px var(--color-hover), 0 0 6px var(--color-hover);
             background-color: var(--color-msg-bg);
@@ -490,14 +488,8 @@ body {
         transform: translateY(0);
         }
         
-        #submit-form{
-        font-size: 1rem;
-        width: 95%;
-        padding: 10px;
-        border-radius: 5px;
-        border: var(--color-border) solid;
-        box-shadow: 0px 4px 6px rgba(5, 5, 5, 0.5);
-        }
+    
+        
 
             form input,
             form textarea {
@@ -514,6 +506,12 @@ body {
             outline: none;
             border-color: var(--color-hover);
             background-color: var(--color-a);
+            color: var(--color-focus);
+            }
+
+            #submit-form{
+                width: 50%;
+                margin-bottom: 70px;
             }
 
 
