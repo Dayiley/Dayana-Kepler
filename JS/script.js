@@ -147,7 +147,7 @@ function typeText() {
   if (index < tagline.length) {
     taglineElement.textContent += tagline.charAt(index);
     index++;
-    setTimeout(typeText, 40); // velocidad (milisegundos por letra)
+    setTimeout(typeText, 15); 
   }
 }
 
@@ -451,5 +451,3 @@ showBtn.addEventListener("click", () => {
   
     e.target.reset();
   });
-
-  
