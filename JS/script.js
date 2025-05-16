@@ -38,7 +38,6 @@ const lightTheme = {
   }
 
     let isLightTheme = false;
-    const mainImg = document.getElementById("dayana-picture")
   
     //code to trigger "applyTheme function" using toggle-theme button, toggle between light them and default them and change button icon
 
@@ -46,12 +45,10 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   if (!isLightTheme) {
     applyTheme(lightTheme);
     document.getElementById('theme-toggle').innerHTML = `<i class="fa-solid fa-moon"></i>`; 
-    mainImg.src = "./Images/dayi.PNG"
 
   } else {
     document.documentElement.removeAttribute('style');
     document.getElementById('theme-toggle').innerHTML = `<i class="fa-solid fa-sun"></i>`;
-    mainImg.src = "Images/dayi2.PNG"
   }
   
   isLightTheme = !isLightTheme;
