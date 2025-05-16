@@ -69,6 +69,7 @@ body {
         right: 3rem;
         top: 1rem;
         font-size: 1rem;
+        z-index: 5;
     }
 
     #web-page-lay-out{
@@ -309,7 +310,6 @@ body {
 
         #skills{
             width: 80%;
-            margin-bottom: 10px;
             padding: 100px 0;
         }
 
@@ -499,13 +499,14 @@ body {
             padding: 10px;
             border: 1px solid var(--color-border);
             background-color: var(--color-box-bg);
+            color: var(--color-text);
             }
             
             form input:focus,
             form textarea:focus {
             outline: none;
             border-color: var(--color-hover);
-            background-color: var(--color-a);
+            background-color: var(--color-skill-bg-hover);
             color: var(--color-focus);
             }
 
@@ -580,7 +581,6 @@ body {
         .mobile-nav{
             display: none;
         }
-
 
 
 /********KEY-FRAMES*********/
@@ -774,8 +774,7 @@ body {
         width: auto;
         align-content: center;
         text-align: center;
-        margin: 1%;
-        
+        margin: 1%;        
     }
 
     #experience{
@@ -818,13 +817,13 @@ body {
     .skills-container {
         grid-template-columns: 1fr;
     
- }
+    }
  
  
  
     #connect2{
-    width: 90%;
- }
+        width: 90%;
+    }
 
  #message-container{
     margin: 0;
@@ -835,11 +834,9 @@ body {
     #message-container.show {
         flex-direction: column;
         margin-bottom:0 10% 30px 0;
-        width: 100%;
-       
-
-        
+        width: 100%;        
     }
+    
     #message-form{
         display: flex;
         flex-direction: column;
@@ -847,7 +844,6 @@ body {
         max-width: 300px;
     }
 
-   
     #messages{
         width: 80%;
         margin: 0;
