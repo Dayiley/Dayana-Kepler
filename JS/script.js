@@ -46,7 +46,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   if (!isLightTheme) {
     applyTheme(lightTheme);
     document.getElementById('theme-toggle').innerHTML = `<i class="fa-solid fa-moon"></i>`; 
-    mainImg.src = "Images/dayi.PNG"
+    mainImg.src = "./Images/dayi.PNG"
 
   } else {
     document.documentElement.removeAttribute('style');
