@@ -342,7 +342,7 @@ function fetchGitHubRepos() {
           info.innerHTML = `
             <a class="repo-name" href="${repo.html_url}" target="_blank">${repo.name} <span>&#8599;</span></a>
             <p>${repo.description || "No description provided."}</p>
-            <small>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</small>
+            <small>Created: ${new Date(repo.created_at).toLocaleDateString()}</small>
           `;
   
           card.appendChild(image);
